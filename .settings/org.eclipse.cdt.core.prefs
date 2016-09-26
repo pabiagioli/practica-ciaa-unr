@@ -1,0 +1,9 @@
+eclipse.preferences.version=1
+environment/project/0.1329659561/PATH/delimiter=\:
+environment/project/0.1329659561/PATH/operation=append
+environment/project/0.1329659561/PATH/value=$PATH\:/home/gmuro/dev/tools/gcc-arm-none-eabi-4_9-2015q1/bin
+environment/project/0.1329659561/PWD/delimiter=\:
+environment/project/0.1329659561/PWD/operation=replace
+environment/project/0.1329659561/PWD/value=/home/gmuro/dev/projects/cursoMicro32/03_workspace_blinking/
+environment/project/0.1329659561/append=true
+environment/project/0.1329659561/appendContributed=true
