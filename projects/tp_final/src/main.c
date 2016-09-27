@@ -24,6 +24,7 @@ static uint8_t rxbuff[UART_RB_SIZE], txbuff[UART_RB_SIZE];
 
 //Constante para definir si el anti rebote pasó
 const uint8_t BTN_SHOULD_CLICK = 10;
+const uint8_t MSG_FTO[] = "Introduzca el valor de entrada en el formato :XY y presione Enter\r\n";
 
 /** @brief used for delay counter */
 static uint32_t pausems_count;
@@ -150,6 +151,9 @@ int main(void)
 	InputDTO maquina = {.state=IDLE_MSG, .data={[0]='0', [1]='0', [2]='\0'}};
 
 	initHardware();
+
+	//Enviar mensaje con instrucciones por UART
+	Chip_UART_SendRB(LPC_UART,&txring,&MSG_FTO,sizeof(MSG_FTO));
 
 	/* Read some data from the buffer */
 	while (1)
