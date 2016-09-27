@@ -10,7 +10,15 @@
  ** @{ */
 
 /*==================[inclusions]=============================================*/
+#include <stdint.h>
+#include <stdio.h>
 
+#include "board.h"
+#include "inttypes.h"
+#include "chip.h"
+
+#include "btn_dto.h"
+#include "serial_dto.h"
 /*==================[cplusplus]==============================================*/
 
 #ifdef __cplusplus
@@ -24,6 +32,20 @@ extern "C" {
 /*==================[external data declaration]==============================*/
 
 /*==================[external functions declaration]=========================*/
+
+/* init hardware functions */
+void initHardware(void);
+void init_hw_PWM(void);
+void init_hw_UART(void);
+
+/* Clock and UART Handlers */
+void SysTick_Handler(void);
+void UART2_IRQHandler(void);
+
+/* Pause function in ms */
+void pausems(uint32_t t);
+/* Mandar el valor de current_duty1 hexadecimal al num_boton */
+uint8_t boton_salida(uint8_t current_duty1, uint8_t num_boton);
 
 /** @brief main function
  * @return main function should never return

@@ -1,4 +1,4 @@
-#include "../inc/btn_dto.h"
+#include "btn_dto.h"
 
 btn_dto botones[] = {
 		{ /*.state = BTN_OFF, */ .funcion_btn = funcion_btn1 },

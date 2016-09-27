@@ -1,4 +1,4 @@
-#include "../inc/serial_dto.h"
+#include "serial_dto.h"
 
 /* utility function to convert hex character representation to their nibble (4 bit) values */
 static uint8_t nibbleFromChar(uint8_t c) {
@@ -48,16 +48,14 @@ void transicionar_dto (InputDTO *dto, uint8_t input){
     dto->state = INVALID_MSG;
   } else if (dto->state == START_MSG && ((input >= '0' && input <= '9') || (input >= 'a' && input <= 'f') || (input >= 'A' && input <= 'F') )) {
     dto->state = MSG_DIGIT1;
-    //asprintf((dto->data), "%s%s", dto->data, &input);
     dto->data[0] = input;
+    //asprintf((dto->data), "%s%s", dto->data, &input);
   } else if (dto->state == START_MSG && !((input >= '0' && input <= '9') || (input >= 'a' && input <= 'f') || (input >= 'A' && input <= 'F') )) {
     dto->state = INVALID_MSG;
   } else if (dto->state == MSG_DIGIT1 && ((input >= '0' && input <= '9') || (input >= 'a' && input <= 'f') || (input >= 'A' && input <= 'F') )) {
-	dto->data[1] = input;
-    //asprintf((dto->data), "%s%s", dto->data, &input);
-	  //dto->data = strcat(dto->data,&input);
     dto->state = MSG_DIGIT2;
-    //dto->data[1] = &input;
+    dto->data[1] = input;
+    //asprintf((dto->data), "%s%s", dto->data, &input);
   } else if (dto->state == MSG_DIGIT1 && !((input >= '0' && input <= '9') || (input >= 'a' && input <= 'f') || (input >= 'A' && input <= 'F') )) {
     dto->state = INVALID_MSG;
   } else if (dto->state == MSG_DIGIT2 && (input == 0x0D || input == '\n')) {
