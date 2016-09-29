@@ -28,7 +28,7 @@ uint16_t interpolar_string(char *data) {
   uint8_t hexValue = 0x0;
   if(*data != 0x0)
 	hexValue = (nibbleFromChar(data[0]) * 16) + nibbleFromChar(data[1]);
-  printf("hexValue = %x\n", hexValue);
+ // printf("hexValue = %x\n", hexValue);
   return interpolar_num(hexValue);
 }
 
