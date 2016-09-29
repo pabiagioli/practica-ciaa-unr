@@ -1,6 +1,6 @@
 //#define _GNU_SOURCE
 #include <stdint.h>
-#include <stdio.h> //printf, asprintf
+//#include <stdio.h> //printf, asprintf
 
 typedef enum input_states {INVALID_MSG, IDLE_MSG, START_MSG, MSG_DIGIT1, MSG_DIGIT2, END_MSG} input_states;
 
